@@ -1,3 +1,5 @@
+import "./components/Todo.css";
+
 import React from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
@@ -32,6 +34,20 @@ class App extends React.Component {
     });
   };
 
+  toggleCompleted = (todoId) => {
+    this.setState({
+      todoList: this.state.todoList.map((todo) => {
+        if (todo.id === todoId) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
+        }
+        return todo;
+      }),
+    });
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.addTodo(this.state.todo);
@@ -41,7 +57,10 @@ class App extends React.Component {
     return (
       <div>
         <h2>Todo List</h2>
-        <TodoList todoList={this.state.todoList} />
+        <TodoList
+          todoList={this.state.todoList}
+          toggleCompleted={this.toggleCompleted}
+        />
         <TodoForm
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}

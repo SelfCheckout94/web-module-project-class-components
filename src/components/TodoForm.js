@@ -9,6 +9,7 @@ class TodoForm extends Component {
           type="text"
           onChange={this.props.handleChange}
           value={this.props.todo}
+          placeholder="Enter your todo!"
         />
         <button>Add Todo</button>
         <button>Clear Complete</button>
