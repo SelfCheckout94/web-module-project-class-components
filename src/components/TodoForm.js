@@ -12,7 +12,7 @@ class TodoForm extends Component {
           placeholder="Enter your todo!"
         />
         <button type="submit">Add Todo</button>
-        <button type="reset" onClick={() => this.props.toggleClear()}>
+        <button type="button" onClick={() => this.props.toggleClear()}>
           Clear Complete
         </button>
       </form>

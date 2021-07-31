@@ -15,6 +15,7 @@ class App extends React.Component {
     this.state = {
       todoList: todoList,
       todo: "",
+      formValue: "",
     };
   }
 
