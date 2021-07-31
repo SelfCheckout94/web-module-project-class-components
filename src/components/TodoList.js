@@ -5,3 +5,5 @@ class TodoList extends Component {
     return <div>thing</div>;
   }
 }
+
+export default TodoList;

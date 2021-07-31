@@ -1,4 +1,7 @@
 import React from "react";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
+import { v4 as uuidv4 } from "uuid";
 
 const todoList = [];
 class App extends React.Component {
@@ -9,13 +12,40 @@ class App extends React.Component {
     super();
     this.state = {
       todoList: todoList,
+      todo: "",
     };
   }
+
+  handleChange = (e) => {
+    e.preventDefault();
+    this.setState({
+      todo: e.target.value,
+    });
+  };
+
+  addTodo = (addTodo) => {
+    this.setState({
+      todoList: [
+        ...this.state.todoList,
+        { name: addTodo, id: uuidv4(), completed: false },
+      ],
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.addTodo(this.state.todo);
+  };
 
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h2>Todo List</h2>
+        <TodoList />
+        <TodoForm
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
       </div>
     );
   }
