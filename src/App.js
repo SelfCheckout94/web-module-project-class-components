@@ -48,6 +48,14 @@ class App extends React.Component {
     });
   };
 
+  toggleClear = () => {
+    this.setState({
+      todoList: this.state.todoList.filter((todo) => {
+        return !todo.completed;
+      }),
+    });
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.addTodo(this.state.todo);
@@ -62,6 +70,7 @@ class App extends React.Component {
           toggleCompleted={this.toggleCompleted}
         />
         <TodoForm
+          toggleClear={this.toggleClear}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
