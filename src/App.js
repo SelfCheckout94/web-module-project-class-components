@@ -41,7 +41,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Todo List</h2>
-        <TodoList />
+        <TodoList todoList={this.state.todoList} />
         <TodoForm
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}

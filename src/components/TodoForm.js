@@ -4,7 +4,12 @@ class TodoForm extends Component {
   render() {
     return (
       <form onSubmit={this.props.handleSubmit}>
-        <input onChange={this.props.handleChange} />
+        <input
+          name="name"
+          type="text"
+          onChange={this.props.handleChange}
+          value={this.props.todo}
+        />
         <button>Add Todo</button>
         <button>Clear Complete</button>
       </form>
